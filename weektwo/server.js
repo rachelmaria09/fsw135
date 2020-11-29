@@ -2,6 +2,8 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 
+// app.use(express.json)
+
 mongoose.connect("mongodb://localhost:27017/ecommercedb", 
 {
     useNewUrlParser: true,
@@ -13,7 +15,15 @@ mongoose.connect("mongodb://localhost:27017/ecommercedb",
 )
 
 app.get("/", (req, res) => {
-    res.send("Hello World!")
+    res.send()
+})
+
+app.use("/items", require("./routes/inventory2"))
+
+//Error Handler
+app.use((err, req, res, next) => {
+    console.log(err)
+    return res.send({errMsg: err.message})
 })
 
 app.listen(9000, () => {
