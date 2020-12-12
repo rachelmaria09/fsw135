@@ -28,17 +28,14 @@ inventoryRouter.get("/:itemId", (req, res, next) => {
 //Post One
 inventoryRouter.post("/", (req, res, next) => {
     console.log(req.body, "inventory2post")
-    const newItem = new Inventory({
-        "item": "blach",
-        "price": 98,
-        "description": "a;sdfk"
-    })
+    const newItem = new Inventory(req.body)
     newItem.save((err, savedItem) => {
         if(err) {
             res.status(500)
             return next(err)
-        }
+        } else {
         return res.status(201).send(savedItem)
+        }
     })
 })
 
