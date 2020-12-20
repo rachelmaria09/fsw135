@@ -21,6 +21,8 @@ app.get("/", (req, res) => {
     res.send("Hello World!")
 })
 
+app.use("/user", require("./routes/userRouter"))
+
 app.listen(9000, () => {
     console.log("Server is working!")
 })

@@ -38,7 +38,7 @@ commentRouter.post("/", (req, res, next) => {
 })
 
 //delete comment
-commentRouter.delete(":commentId", (req, res, next) => {
+commentRouter.delete("/:commentId", (req, res, next) => {
     Comment.findOneAndDelete (
         {_id: req.params.commentId},
         (err, deletedComment) => {

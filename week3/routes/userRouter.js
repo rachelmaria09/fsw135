@@ -38,7 +38,7 @@ userRouter.post("/", (req, res, next) => {
 })
 
 //delete user
-userRouter.delete(":userId", (req, res, next) => {
+userRouter.delete("/:userId", (req, res, next) => {
     User.findOneAndDelete (
         {_id: req.params.userId},
         (err, deletedUser) => {
@@ -67,4 +67,4 @@ userRouter.put("/:userId", (req, res, next) => {
     )
 })
 
-module.export = userRouter
+module.exports = userRouter
