@@ -27,6 +27,7 @@ commentRouter.get("/:commentId", (req, res, next) => {
 
 //add new comment
 commentRouter.post("/", (req, res, next) => {
+    req.body.user = req.user._id
     const newComment = new Comment(req.body)
     newComment.save((err, savedComment) => {
         if(err) {
@@ -67,4 +68,4 @@ commentRouter.put("/:commentId", (req, res, next) => {
     )
 })
 
-module.export = commentRouter
+module.exports = commentRouter
