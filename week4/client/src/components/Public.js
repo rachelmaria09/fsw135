@@ -1,6 +1,6 @@
 import React from 'react'
-import UserList from './UserList'
-import User from './User'
+// import IssueList from './IssueList'
+// import Issue from './Issue'
 
 export default function Public() {
     return (

@@ -1,10 +1,11 @@
 const express = require("express")
-const userRouter = express.Router()
+const issueRouter = express.Router()
 const Issue = require("../models/issue")
 
 //get all issues
 issueRouter.get("/", (req, res, next) => {
     Issue.find((err, issues) => {
+        console.log(issues)
         if(err) {
             res.status(500)
             return next(err)
@@ -14,7 +15,7 @@ issueRouter.get("/", (req, res, next) => {
 })
 
 //get one issue
-issueRouter.get("/:issueId", (req, res, next) => {
+issueRouter.get("Id/:issueId", (req, res, next) => {
     const issueId = req.params.issueId
     const foundIssue = issues.find(issue => issue._id === issueId)
     if(!foundIssue) {
@@ -23,6 +24,19 @@ issueRouter.get("/:issueId", (req, res, next) => {
         return next(error)
     }
     res.status(200).send(foundIssue)
+})
+
+//get by user
+issueRouter.get("/user", (req, res, next) => {
+    console.log(req.user._id)
+    Issue.find({user: req.user._id}, (err, issues) => {
+        console.log(issues)
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(issues)
+    })
 })
 
 //add new issue

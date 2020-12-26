@@ -25,6 +25,8 @@ app.get("/", (req, res) => {
 app.use("/auth", require("./routes/authRouter"))
 app.use("/api", expressJwt({secret: process.env.SECRET, algorithms: ["sha1", "RS256", "HS256"]}))
 app.use("/api/user", require("./routes/userRouter"))
+app.use("/api/issue", require("./routes/issueRouter"))
+app.use("/api/comment", require("./routes/commentRouter"))
 
 app.use((err, req, res, next) => {
     console.log(err)
