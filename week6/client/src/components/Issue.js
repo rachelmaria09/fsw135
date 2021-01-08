@@ -68,11 +68,13 @@ export default class Issue extends React.Component {
             <h1>{title}</h1>
             <h2>{description}</h2>
             <img src={imgUrl} alt={imgUrl} width={300}/>
+            <br></br>
+            <br></br>
             <span>{upvotes}</span>
-            <button onClick={(e) => this.upvote(e, _id)}>Upvote</button>
-            <button onClick={(e) => this.downvote(e, _id)}>Downvote</button>
+            <button className="voteBtn" onClick={(e) => this.upvote(e, _id)}>Upvote</button>
+            <button className="voteBtn" onClick={(e) => this.downvote(e, _id)}>Downvote</button>
             <span>{downvotes}</span>
-            <form>
+            <form className="commentForm">
                 <input
                 type="text"
                 onChange={e => this.handleChange(e)}
@@ -80,6 +82,8 @@ export default class Issue extends React.Component {
                 value={this.state.title}
                 name="title"
                 />
+                <br></br>
+                <br></br>
                 <input
                 type="text"
                 onChange={e => this.handleChange(e)}
@@ -87,7 +91,9 @@ export default class Issue extends React.Component {
                 value={this.state.imageUrl}
                 name="imageUrl"
                 />
-                <button onClick={(e) => {e.preventDefault()
+                <br></br>
+                <br></br>
+                <button className="submitCommentBtn" onClick={(e) => {e.preventDefault()
                     this.addComment(_id)
                 }}>Submit Comment</button>                
             </form>
@@ -95,7 +101,7 @@ export default class Issue extends React.Component {
             <ul>
                 {this.state.comments.map((comment, index) => (<li>{comment.title + " " + comment.imgUrl}</li>))}
             </ul>
-            <button onClick={(e) => this.deleteIssue(e, _id)}>Delete Issue</button>
+            <button className="deleteBtn" onClick={(e) => this.deleteIssue(e, _id)}>Delete Issue</button>
         </div>
     )
 }

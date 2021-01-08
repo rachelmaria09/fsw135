@@ -32,5 +32,6 @@ export default function Authform(props) {
             <button className="btn">{btnText}</button>
             <p style={{color: "red"}}>{errMsg}</p>
         </form>
+        
     )
 }

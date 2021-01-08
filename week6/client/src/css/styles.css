@@ -69,3 +69,22 @@ a:hover {
     border: none;
     margin-left: 160px;
 }
+.voteBtn {
+    margin: 20px;
+    background-color: white;
+    border: none;
+    height: auto;
+}
+.deleteBtn {
+    background-color: white;
+    border: none;
+    height: auto;
+}
+.submitCommentBtn {
+    background-color: white;
+    border: none;
+    height: auto;  
+}
+.commentForm {
+    margin: 20px;
+}
